@@ -19,14 +19,16 @@ class AddTodo extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='addTodo'>
                 <input
+                    className='input'
                     onChange={e => this.updateInput(e.target.value)}
                     value={this.state.input}
                 />
                 <button className="add-todo" onClick={this.handleAddTodo}>
                     Add Todo
                 </button>
+                <hr/>
             </div>
         );
     }

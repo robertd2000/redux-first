@@ -1,6 +1,6 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { ADD_TODO, REMOVE_TODO, DONE_TODO } from "./actionTypes";
 
-let nextTodoId = 0;
+let nextTodoId = Math.random();
 
 export const addTodo = content => ({
     type: ADD_TODO,
@@ -12,6 +12,13 @@ export const addTodo = content => ({
 
 export const removeTodo = id => ({
     type: REMOVE_TODO,
+    payload: {
+        id
+    }
+})
+
+export const doneTodo = id => ({
+    type: DONE_TODO,
     payload: {
         id
     }

@@ -18,6 +18,6 @@ const TodoList = ({ todos }) => {
 const mapStateToProps = state => {
     let todos = state.allIds
     return { todos }
-  };
-  // export default TodoList;
-  export default connect(mapStateToProps)(TodoList);
+};
+// export default TodoList;
+export default connect(mapStateToProps)(TodoList);
