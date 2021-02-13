@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, DONE_TODO } from "./actionTypes";
+import { ADD_TODO, REMOVE_TODO, DONE_TODO, SHOW_DONE_TODO, RETURN_DONE_TODO } from "./actionTypes";
 
 const initialState = {
   allIds: window.localStorage.getItem('todos') ? JSON.parse(window.localStorage.getItem('todos')) : [],
@@ -26,7 +26,7 @@ export default function todos(state=initialState, action) {
                     content,
                     id,
                     done: false
-                }
+                },
             ]
 
             let done = res.filter(i => i.done === true)
@@ -62,12 +62,34 @@ export default function todos(state=initialState, action) {
             let todoPrev  = [...state.allIds].filter(i => i.id !== id)
             let done = todoPrev.filter(i => i.done === true)
             let notDone = todoPrev.filter(i => i.done !== true)
-            let res = [...notDone, ...done, ...todoCurent]
+            let res = todoCurent[0].done === true ?
+                [...notDone, ...done, ...todoCurent] :
+                [...notDone, ...todoCurent, ...done, ]
             window.localStorage.setItem('todos', JSON.stringify(res))
 
             return {
                 // allIds: [...todoPrev, ...todoCurent
                 allIds: res
+            }
+        }
+
+        case SHOW_DONE_TODO: {
+            let dones = state.allIds.filter(i => i.done === true)
+            let notDones = state.allIds.filter(i => i.done !== true)
+            let res = [...dones, ...notDones]
+            window.localStorage.setItem('todos', JSON.stringify(res))
+            return {
+                allIds: res,
+            }
+        }
+
+        case RETURN_DONE_TODO: {
+            let dones = state.allIds.filter(i => i.done === true)
+            let notDones = state.allIds.filter(i => i.done !== true)
+            let res = [...notDones, ...dones,]
+            window.localStorage.setItem('todos', JSON.stringify(res))
+            return {
+                allIds: res,
             }
         }
 

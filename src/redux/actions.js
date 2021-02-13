@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, DONE_TODO } from "./actionTypes";
+import { ADD_TODO, REMOVE_TODO, DONE_TODO, SHOW_DONE_TODO, RETURN_DONE_TODO } from "./actionTypes";
 
 let nextTodoId = Math.random();
 
@@ -22,4 +22,12 @@ export const doneTodo = id => ({
     payload: {
         id
     }
+})
+
+export const allDoneTodo = () => ({
+    type: SHOW_DONE_TODO,
+})
+
+export const returnDoneTodo = () => ({
+    type: RETURN_DONE_TODO,
 })

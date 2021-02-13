@@ -1,13 +1,13 @@
 body {
-  background-color: rgb(129, 125, 125);
+  background-color: rgb(62, 103, 236);
+  color: rgb(85, 83, 83);
 }
 
 .App {
   margin: 0 auto;
   height: 100%;
   min-height: 540px;
-  width: 700px;
-  border: 1px solid black;
+  width: 600px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   background-color: #fff;
@@ -17,45 +17,79 @@ body {
 
 .todo-list {
   margin: 0 auto;
-  width: 550px;
+  width: 500px;
   word-wrap: break-word;
 }
 
 .addTodo {
   margin: 0 auto;
-  width: 550px;
+  width: 500px;
   word-wrap: break-word;
-  margin-left: 95px;
+  margin-left: 70px;
 }
 
-.done {
+/* .done {
   color: green;
-}
+} */
 
 .todo {
   margin: 0 auto;
-  width: 550px;
+  width: 500px;
+  height: 70px;
+}
+
+.todoItem {
+  font: italic 1.2em "Fira Sans", serif;
 }
 
 .done-hand {
   float: left;
 }
 
+.doneItem {
+  color: blue;
+}
+
 .close {
   float: right;
-  color: red;
+  color: white;
+  background-color: rgb(62, 103, 236);
+  border-radius: 15px;
   cursor: pointer;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+.close:hover {
+  background-color: rgb(102, 135, 241);
 }
 
 .add-todo {
-  background-color: rgb(56, 56, 231);
+  background-color: rgb(62, 103, 236);
   border: none;
   color: #fff;
-  margin: 0 10px;
-  padding: 3px;
+  margin: 10px 10px;
+  padding: 7px;
   cursor: pointer;
+}
+
+.add-todo:hover {
+  background-color: rgb(102, 135, 241);
 }
 
 .input {
   width: 459px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 25px;
+}
+
+.circleItem {
+  color: blue;
+  font-weight: 900;
+  font-size: 30px;
+  margin-top: 10px;
 }

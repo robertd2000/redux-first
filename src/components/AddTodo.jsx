@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import { addTodo, allDoneTodo, returnDoneTodo } from "../redux/actions";
 
 class AddTodo extends React.Component {
     constructor(props) {
@@ -17,6 +17,15 @@ class AddTodo extends React.Component {
         this.setState({input: ''})
     }
 
+    showDone = e => {
+        console.log(e.target.checked );
+        if (e.target.checked === true) {
+            this.props.allDoneTodo()
+        } else {
+            this.props.returnDoneTodo()
+        }
+    }
+
     render() {
         return (
             <div className='addTodo'>
@@ -28,6 +37,8 @@ class AddTodo extends React.Component {
                 <button className="add-todo" onClick={this.handleAddTodo}>
                     Add Todo
                 </button>
+                Done
+                <input type="checkbox" className='checkbox' onChange={e => this.showDone(e)}/>
                 <hr/>
             </div>
         );
@@ -36,5 +47,5 @@ class AddTodo extends React.Component {
 
 export default connect(
     null,
-    {addTodo}
+    {addTodo, allDoneTodo, returnDoneTodo}
 )(AddTodo)
